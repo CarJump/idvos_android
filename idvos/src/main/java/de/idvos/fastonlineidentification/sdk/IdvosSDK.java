@@ -6,7 +6,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 
-import com.crashlytics.android.Crashlytics;
+//import com.crashlytics.android.Crashlytics;
 
 import de.idvos.fastonlineidentification.activity.StartActivity;
 import de.idvos.fastonlineidentification.config.AppConfig;
@@ -52,8 +52,16 @@ public class IdvosSDK {
 
         IdvosSDK.mode = mode;
 
-        Crashlytics.start(context);
+        initCrashlytics(context);
         AppConfig.initialize(context);
+    }
+
+    private static void initCrashlytics(final Context context) {
+        try {
+            //Crashlytics.start(context);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
